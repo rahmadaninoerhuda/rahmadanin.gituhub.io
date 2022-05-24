@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <h4>Survey Kepuasaan Pelanggan</h4>
+    <form action="#" class="container">
+        <label for="name">Nama</label>
+        <input type="text" name="nama" id="nama" />
+        <br/>
+        <label for="umur">Umur</label>
+        <input type="text" name="umur" id="umur" />
+        <br/>
+        <label for="jeniskelamin">Jenis Kelamin</label>
+        <br/>
+        <input type="radio" name="jeniskelamin" id="jeniskelamin" value="laki-laki" /> Laki-laki
+        <input type="radio" name="jeniskelamin" id="jeniskelamin" value="perempuan" /> Perempuan
+        <br/>
+        <label for="nilaikepuasan">Nilai Kepuasan(1-5)</label>
+        <input type="text" name="nilaikepuasan" id="nilaikepuasan" />
+        <br>
+        <label for="informasi">Darimana anda mengetahui produk kami</label>
+        <br/>
+        <input type="checkbox" name="informasi" id="informasi" value="SosialMedia" /> SosialMedia
+        <input type="checkbox" name="informasi" id="informasi" value="Teman" /> Teman
+        <input type="checkbox" name="informasi" id="informasi" value="Internet" /> Internet
+        <br/>
+        <label for="menggunakan">Apakah anda menggunakan layanan kami?</label>
+        <br/>
+        <input type="radio" name="menggunakan" id="menggunakan" value="ya" />Ya
+        <input type="radio" name="menggunakan" id="menggunakan" value="tidak" />Tidak
+        <br/>
+        <label for="kritik">Kritik dan Saran</label>
+        <br>
+        <textarea name="kritik" id="kritik" cols="30" rows="3"></textarea>
+        <br/>
+        <input type="button" value="Kirim" onclick="tampilData()" />
+    </form>
+
+    <script>
+        function tampilData() {
+            var nama = document.getElementById("nama").value;
+            var umur = document.getElementById("umur").value;
+            var jeniskelamin = document.querySelector("input[name=jeniskelamin]:checked").value;
+            var informasi = document.getElementsByName("informasi");
+            var daftarinformasi = ''
+
+            for (var informasi2 of informasi) {
+                if (informasi2.checked) {
+                    daftarinformasi += ', ' + informasi2.value
+                }
+            }
+
+            daftarinformasi = daftarinformasi.substring(1)
+
+            var menggunakan = document.querySelector("input[name=menggunakan]:checked").value;
+
+            alert(
+                "Nama :" + nama +
+                "\nUmur :" + umur +
+                "\nJenis Kelamin :" + jeniskelamin +
+                "\nInformasi : " + daftarinformasi +
+                "\nMenggunakan :" + menggunakan
+            );
+        }
+    </script>
+
+</body>
+
+</html>
